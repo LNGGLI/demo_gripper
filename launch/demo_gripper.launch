@@ -1,0 +1,14 @@
+<?xml version="1.0" ?>
+<launch>
+  <arg name="robot_ip" />
+  <arg name="load_gripper" default="true" />
+  <include file="$(find franka_gripper)/launch/franka_gripper.launch" >
+    <arg name="robot_ip" value="$(arg robot_ip)" />
+    <arg name="stop_at_shutdown" value="true" />
+    <arg name="arm_id" value="panda" />
+  </include>
+
+  <node name="demo_gripper_node" pkg="demo_gripper" type="demo_gripper_node" respawn="false" output="screen" ></node>
+
+
+</launch>
